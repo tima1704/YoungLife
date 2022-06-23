@@ -1,0 +1,24 @@
+.flex_content{
+     display: flex;
+     justify-content: center;
+}
+.background_team{
+     width: 300px;
+     height: 600px;
+}
+.more_about_team{
+     overflow: hidden;
+     transition: .2s;
+     cursor: pointer;
+     padding: 10px 20px;
+     border-radius: 100%;
+     font-size: 30px;
+     color: #fff;
+     background-color: rgb(72, 72, 72);
+     position: absolute;
+     z-index: 5;
+     top: 400px;
+}
+.more_about_team:hover{
+     transform: scale(1.1);
+}

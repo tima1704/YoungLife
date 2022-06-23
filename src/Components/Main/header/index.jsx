@@ -1,23 +1,18 @@
 import React, { useContext } from "react";
-import classnames from "classnames";
 import { WidthContext } from "../../widthWrapper";
-import styles from "./index.module.css";
-
+import Menu from "../menu";
+import MenuHeader from "./menuHeader";
 const Header = () => {
-  const widthScreen = useContext(WidthContext);
+  const [menuActive, setMenuActive] = React.useState(false);
   return (
-    <>
-    {widthScreen < 500 ? (
-      <header className={classnames(styles["header"], "container")}>
-      <h1>header 1980s</h1>
-    </header>
-    ) : (
-     <header className={classnames(styles["header"], "container")}>
-     <h1>header 500s</h1>
-   </header>
-    )}
-
-    </>
+    <section>
+      {(
+        <>
+          <Menu openMenu={menuActive} setOpenMenu={setMenuActive} />
+          <MenuHeader active={menuActive} setActive={setMenuActive} />
+        </>
+      )}
+    </section>
   );
 };
 
