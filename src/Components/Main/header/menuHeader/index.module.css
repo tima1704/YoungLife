@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Moonrocks&display=swap');
+.header{
+     background-color: rgb(255, 255, 255);
+     padding-top: 20px;
+     padding-left: 100px;
+     padding-right: 100px;
+     justify-content: space-between;
+     display: flex;
+     align-items: center;
+}
+.open{
+     transition: .2s;
+     letter-spacing: 5px;
+     font-family: 'Rubik Moonrocks', cursive;
+     font-size: 25px;
+     cursor: pointer;
+}
+.open:hover{
+     text-shadow: 0 0 2px rgba(0, 0, 0, 0.231);
+}
+.right_content img{
+     transition: .5s;
+     cursor: pointer;
+     width: 60px;
+     margin: 0px;
+}
+.openMenu{
+     color: #000;
+}
+
+.right_content img:hover{
+     transform: rotate(360deg);
+}
