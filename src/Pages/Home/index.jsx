@@ -1,11 +1,9 @@
-import React from 'react';
-
-import styles from "../../Styles/page/home.module.css";
-import Team from '../../Components/Team';
+import React from "react";
+import Style from "../../Styles/page/home.module.css";
 export const Home = () => {
-     return (
-          <div className={styles["home"]}>
-               <Team/>
-          </div>
-     );
-}
+  return(
+    <section>
+      <h1>hello Home</h1>
+    </section>
+  )
+};
