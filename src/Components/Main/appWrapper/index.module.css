@@ -1,0 +1,36 @@
+body{
+   margin: 0;
+   height: 100%;
+}
+*::before,
+*::after{
+   box-sizing: border-box;
+}
+
+.header,
+.footer{
+   width: 100%;
+   margin-top: auto;
+   background-color: #fff;
+}
+.header{
+   position: fixed;
+   top: 0;
+}
+.footer{
+   margin-top: 30px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   box-shadow: 10px 0 20px rgba(192, 192, 192, 0.41);
+}
+.page{
+   min-height: 100vh;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+.content{
+   padding: 0 100px;
+   margin-top: 80px;
+   flex: 1 1 auto;
+}
