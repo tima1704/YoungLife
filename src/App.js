@@ -2,8 +2,8 @@ import React from "react";
 
 import { Routes, Route } from "react-router-dom";
 import { WidthWrapper } from "./Components/widthWrapper";
-import { URL_ABOUT, URL_HOME, URL_SIGNIN } from "./Constants/URL";
-import { Home, Auth, About } from "./Pages";
+import { URL_ABOUT, URL_GAMES, URL_HOME, URL_SIGNIN } from "./Constants/URL";
+import { Home, Auth, About, Games } from "./Pages";
 import "./Styles/index.css";
 import PrivateRoutes from "./Components/PrivatRoute";
 import { AppWrapper } from "./Components/Main/appWrapper";
@@ -14,6 +14,7 @@ const App = () => {
       <AppWrapper>
         <Routes>
           <Route element={<PrivateRoutes />}>
+            <Route path={URL_GAMES} element={<Games/>}/>
             <Route path={URL_HOME} element={<Home />} />
             <Route path={URL_ABOUT} element={<About />} />
           </Route>

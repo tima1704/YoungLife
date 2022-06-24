@@ -25,6 +25,7 @@ const Team = () => {
         {teamArray.map((item) => {
           return (
             <div
+              key={item.id}
               style={{
                 backgroundImage: `url(${item.url})`,
                 backgroundSize: "cover",
