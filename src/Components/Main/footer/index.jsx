@@ -3,8 +3,10 @@ import classnames from 'classnames';
 import styles from './index.module.css';
 const Footer = () => {
   return (
-    <footer className={classnames(styles[""], "container")}>
-      <h1>footer</h1>
+    <footer className={classnames(styles["footer"], "container")}>
+      <div className={styles["title"]}>
+        <h1>Young Live</h1>
+      </div>
     </footer>
   );
 };

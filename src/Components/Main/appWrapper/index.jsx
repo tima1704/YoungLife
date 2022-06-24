@@ -1,12 +1,14 @@
 import React from "react";
-import { Foot, Head, Menu } from "..";
+import "../../../Styles/index.css"
+import styles from "./index.module.css";
+import { Foot, Head } from "..";
+import classNames from "classnames";
 export const AppWrapper = ({ children }) => {
-  const [openMenu, setOpenMenu] = React.useState(false);
   return (
-    <div>
-      <Head />
-      <div className="body">{children}</div>
-      <Foot />
+    <div className={styles["page"]}>
+      <div className={styles["header"]}><Head /></div>
+      <div className={classNames(styles["content"], "body")}>{children}</div>
+      <div className={styles["footer"]}><Foot /></div>
     </div>
   );
 };
