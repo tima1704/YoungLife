@@ -24,7 +24,7 @@ const MenuHeader = ({ active, setActive }) => {
         <div className={styles["pc_content"]}>
           <div className={styles["leftPc"]}>
           <Link to={URL_HOME} className={styles["links"]}>
-              <span className={styles["Home"]}>Young Live</span>
+              <span className={styles["Home"]}>Young Life</span>
               {" "}
               &nbsp;
               &nbsp;

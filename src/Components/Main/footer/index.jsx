@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={classnames(styles["footer"], "container")}>
       <div className={styles["title"]}>
-        <h1>Young Live</h1>
+        <h1>Young Life</h1>
       </div>
     </footer>
   );

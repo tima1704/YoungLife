@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
-import { CreateGame } from "../../Components/Games/createGame";
-import { Create, Delete, Get } from "../../Constants/API";
-import Style from "../../Styles/page/game.module.css";
+import React from "react";
+import { Delete, Get } from "../../Constants/API";
+import styles from "../../Styles/page/game.module.css";
+import Load from "../../Components/common/Load";
+import { Link } from "react-router-dom";
+import BackBtn from "../../Components/common/backBtn";
 const News = () => {
-  const [loading, setLoading] = useState(false);
-  const [games, setgames] = useState([]);
-  const [gamesSelect, setGamesSelect] = useState("all");
+  const [loading, setLoading] = React.useState(false);
+  const [games, setgames] = React.useState([]);
   // To get DATA. Getting the base from the component API;
 
-  useEffect(() => {
+  React.useEffect(() => {
     Get(`games.json`, "", "")
       .then((res) => res.json(), setLoading(true))
       .then((r) => {
@@ -21,79 +22,60 @@ const News = () => {
               id,
             };
           });
-          if (gamesSelect === "all") {
-            setgames(data);
-          } else {
-            const filterArray = data.filter(
-              (item) => item.view === `${gamesSelect}`
-            );
-            setgames(filterArray);
-          }
+          setgames(data);
         }
       });
-  }, [gamesSelect]);
+  }, []);
   const deleteCard = (id) => {
     Delete(`games`, `${id}.json`, "").then(() => window.location.reload());
   };
+
   return (
-    <div>
-      <div>
-        <div>
-          <select
-            placeholder="разделы"
-            onChange={(e) => {
-              const selectedFood = e.target.value;
-              setGamesSelect(selectedFood);
-            }}
-          >
-            <option onClick={() => setGamesSelect("all")} value="all">
-              all
-            </option>
-            <option onClick={() => setGamesSelect("Contests")} value="Contests">
-              Contests
-            </option>
-            <option onClick={() => setGamesSelect("tourism")} value="tourism">
-              tourism
-            </option>
-          </select>
-        </div>
+    <div className={styles["block_games"]}>
+      <div className={styles["add-game"]}>
+        <BackBtn />
+        <Link to="/addgame">
+          <button>добавить игру + </button>
+        </Link>
       </div>
       {loading ? (
-        <>loading...</>
+        <Load />
       ) : games.length === 0 ? (
-        <p className={Style.noitems}>Пусто..</p>
+        <div className={styles["noArray"]}>
+          <p>Пока ничего нет.</p>
+        </div>
       ) : (
-        games.map((item) => {
-          return (
-            <div key={item.id}>
-              <div>
-                <div>
+        <div className={styles["flex-item"]}>
+          {games.map((item) => {
+            return (
+              <div className={styles["item"]} key={item.id}>
+                <div className={styles["item_header"]}>
                   <img alt="" src={item.img} />
                 </div>
-                <div>
+                <div className={styles["item_body"]}>
                   <h1>{item.title}</h1>
                   <p>{item.info}</p>
-                  <div>
-                    <div>
-                      <button
-                        onClick={() => {
-                          deleteCard(item.id);
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                    <div>
-                      <p>
-                        <span>{item.view}</span>
-                      </p>
-                    </div>
+                  <div className={styles["day"]}>
+                    <span>{item.day >= item.begin  ? (
+                      <>Состоялось: {item.begin} июня</>
+                    ) : (
+                      <>Состоится: {item.begin} июня </>
+                    )}</span>
+                  </div>
+                  <div className={styles["item_footer"]}>
+                    <button
+                      onClick={() => {
+                        deleteCard(item.id);
+                      }}
+                    >
+                      Delete this game
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })
+            );
+          })}
+        </div>
       )}
     </div>
   );
