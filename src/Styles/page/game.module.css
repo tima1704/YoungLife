@@ -1,0 +1,85 @@
+.noArray {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.noArray p {
+  font-size: 35px;
+  position: absolute;
+  top: 350px;
+}
+.add-game button {
+  margin-top: 50px;
+  z-index: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  padding: 10px 15px;
+  border-radius: 30px;
+  background-color: black;
+  color: #fff;
+  font-size: 17px;
+}
+.flex-item {
+  margin-top: 70px;
+  margin-bottom: 50px;
+  display: flex;
+}
+.item{
+  margin: 15px 20px;
+  width: 50%;
+}
+.item_header img {
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
+  height: 500px;
+}
+.item_body h1 {
+  font-size: 35px;
+  line-height: 50px;
+}
+.day{
+  font-weight: 500;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.item_body p {
+  overflow-wrap: break-word;
+  font-size: 18px;
+  line-height: 23px;
+}
+.item_footer{
+  display: flex;
+  margin-top: auto;
+}
+.item_footer button {
+  font-weight: 500;
+  transition: .3s;
+  cursor: pointer;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  width: 250px;
+  height: 50px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.item_footer button:hover{
+  background-color: black;
+  color: #fff;
+}
+.add-game button:hover {
+  color: #000;
+  background-color: rgb(255, 255, 255);
+}
+
+@media (max-width: 600px) {
+  .noArray p {
+    font-size: 25px;
+  }
+}
